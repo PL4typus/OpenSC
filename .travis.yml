@@ -277,10 +277,10 @@ script:
     fi
   - if [ "${DO_SIMULATION}" = "cac" ]; then
       cd $TRAVIS_BUILD_DIR/p11test/;
-      ./p11test -s 0 -p 12345678 -o &;
+      ./p11test -s 0 -p 12345678 -o &
       sleep 5;
       cd ../virt_cacard;
-      ./virt_cacard &;
+      ./virt_cacard &
       cd ../p11test/;
       wait $(ps aux | grep '[p]11test'| awk '{print $2}');
       kill -9 $(ps aux | grep '[v]irt_cacard'| awk '{print $2}');
