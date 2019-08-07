@@ -196,8 +196,6 @@ before_script:
       cd $TRAVIS_BUILD_DIR;
       git clone https://github.com/PL4typus/virt_cacard.git;
       cd virt_cacard && ./autogen.sh && ./configure && make;
-      ./setup-softhsm2.sh;
-      export SOFTHSM2_CONF=$PWD/softhsm2.conf;
 
       cd $TRAVIS_BUILD_DIR;
       sudo /etc/init.d/pcscd restart;
@@ -285,6 +283,8 @@ script:
       ./p11test -s 0 -p 12345678 -i &
       sleep 5;
       cd $TRAVIS_BUILD_DIR/virt_cacard;
+      ./setup-softhsm2.sh;
+      export SOFTHSM2_CONF=$PWD/softhsm2.conf;
       ./virt_cacard &
       wait $(ps aux | grep '[p]11test'| awk '{print $2}');
       kill -9 $(ps aux | grep '[v]irt_cacard'| awk '{print $2}');
