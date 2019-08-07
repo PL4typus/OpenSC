@@ -187,11 +187,11 @@ before_script:
   - if [ "${DO_SIMULATION}" = "cac" ]; then
       git clone https://github.com/frankmorgner/vsmartcard.git;
       cd vsmartcard/virtualsmartcard;
-      autoreconf -vis && ./configure && make -j4 && make install;
+      autoreconf -vis && ./configure && make -j4 && sudo make install;
 
       cd $TRAVIS_BUILD_DIR;
       git clone https://gitlab.freedesktop.org/spice/libcacard.git;
-      cd libcacard && ./autogen.sh --prefix=/usr && make -j4 && make install;
+      cd libcacard && ./autogen.sh --prefix=/usr && make -j4 && sudo make install;
 
       cd $TRAVIS_BUILD_DIR;
       git clone https://github.com/PL4typus/virt_cacard.git;
