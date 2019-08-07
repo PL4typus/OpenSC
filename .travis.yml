@@ -199,6 +199,7 @@ before_script:
       ./setup-softhsm2.sh;
       export SOFTHSM2_CONF=$PWD/softhsm2.conf;
 
+      cd $TRAVIS_BUILD_DIR;
       sudo /etc/init.d/pcscd restart;
     fi
 
