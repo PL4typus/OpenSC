@@ -279,7 +279,10 @@ script:
       set +ex;
     fi
   - if [ "${DO_SIMULATION}" = "cac" ]; then
-      cd $TRAVIS_BUILD_DIR/src/tests/p11test/;
+      cd $TRAVIS_BUILD_DIR
+      sudo make install;
+      export LD_LIBRARY_PATH=/usr/local/lib;
+      /src/tests/p11test/;
       ./p11test -s 0 -p 12345678 -i &
       sleep 5;
       cd $TRAVIS_BUILD_DIR/virt_cacard;
