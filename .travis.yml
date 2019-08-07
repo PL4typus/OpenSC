@@ -32,6 +32,7 @@ matrix:
       env:
         - DO_SIMULATION=cac
         - ENABLE_VIRT_CACARD=--enable-virt_cacard
+      sudo: true
 
 env:
   global:
