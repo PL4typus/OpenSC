@@ -184,7 +184,7 @@ before_script:
       sudo /etc/init.d/pcscd restart;
     fi
 
-  - if [ "{$DO_SIMULATION}" = "cac" ]; then
+  - if [ "${DO_SIMULATION}" = "cac" ]; then
       git clone https://github.com/frankmorgner/vsmartcard.git;
       cd vsmartcard/virtualsmartcard;
       autoreconf -vis && ./configure && make -j4 && make install;
