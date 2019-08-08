@@ -279,7 +279,7 @@ script:
       set +ex;
     fi
   - if [ "${DO_SIMULATION}" = "cac" ]; then
-      cd $TRAVIS_BUILD_DIR
+      cd $TRAVIS_BUILD_DIR;
       sudo make install;
       export LD_LIBRARY_PATH=/usr/local/lib;
       /src/tests/p11test/;
